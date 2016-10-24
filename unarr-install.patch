@@ -1,0 +1,16 @@
+┌─[ symbianflo @ abfonly ] - [ Mandrivausers.ro ] 
+└─[ MRB:aint-no-shit $]: diff -up CMakeLists.txt patched-CMakeLists.txt
+--- CMakeLists.txt      2016-10-24 20:16:21.931196795 +0200
++++ patched-CMakeLists.txt      2016-10-24 20:14:52.191808490 +0200
+@@ -92,7 +92,8 @@ if (BZIP2_FOUND)
+ endif (BZIP2_FOUND)
+ 
+ #make install targets
+-
+-install(TARGETS unarr DESTINATION lib)
++# let's define libs properly -Symbianflo
++set (LIB_INSTALL_DIR lib CACHE STRING "Install location of libraries (e.g. lib32 or lib64 for multilib installations)")
++install(TARGETS unarr DESTINATION "${LIB_INSTALL_DIR}")
+ install(TARGETS unarr_static DESTINATION lib)
+ install(FILES unarr.h DESTINATION include)
+\ Manca newline alla fine del file
